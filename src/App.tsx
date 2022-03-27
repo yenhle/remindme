@@ -1,35 +1,3 @@
-// import React from 'react';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <div className="Banner"/>
-//       <header className="App-header">
-//         <div className="Reminder-square"/>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// const greet = require("greet-by-time");
-// const hour = new Date().getHours();
-// greet.morningGreetings = ["Good morning", "Rise and shine"];
-// greet.dayGreetings = ["Good afternoon", "Hello", "Hi"];
-// greet.eveningGreetings = ["Good evening", "Good night"];
-// export default App;
-
 import React from "react";
 import { connect } from "react-redux";
 import { rootState } from "./store/reducers";
@@ -41,8 +9,8 @@ import { listState } from "./store/reducers/listReducer";
 import RemindersHolder from "./components/RemindersHolder";
 import ListsHolder from "./components/ListsHolder";
 import Greeting from "./greeting";
-
-
+import {variant} from "./variant.png";
+import {planet} from "./planet.png";
 
 
 interface IProps {}
@@ -96,24 +64,22 @@ class App extends React.Component<Props, IState> {
   render() {
     const { currentList } = this.state;
     return (
-      
       <div className="App">
+        <img className="variant" src={variant} alt=""></img>
+        <img className="planet" src={planet} alt=""></img>
         <Greeting name="Chau" showTime={true}/>
-        {/* <h1>Good morning Chau!</h1> */}
-
-            <div className="main-holder">
-
-                <ListsHolder
-                  currentList={currentList}
-                  updateCurrentList={this.updateCurrentList}
-                />
-                <RemindersHolder currentList={currentList} />
-
+        <div className="main-holder">
+          <ListsHolder
+            currentList={currentList}
+            updateCurrentList={this.updateCurrentList}
+          />
+          <RemindersHolder currentList={currentList} />
         </div>
       </div>
     );
   }
 }
+
 
 interface LinkStateProps {
   reminders: remindersState;
@@ -135,4 +101,5 @@ const mapDispatchToProps = (
   ownProps: IProps
 ): LinkDispatchProps => ({});
 
+declare module "*.png";
 export default connect(mapStateToProps, mapDispatchToProps)(App);

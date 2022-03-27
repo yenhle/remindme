@@ -1,29 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-header {
-  background-image: radial-gradient(farthest-corner at 0% 0%, #D8CAFF 0%, #D4DEFD 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.Reminder-square {
-  position: absolute;
-  top: 25%;
-  left: 33%;
-  width: 35%;
-  height: 50%;
-  background: #E1E1FA;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -15px -15px 20px rgba(255, 255, 255, 0.6);
-  border-radius: 41px;
-} */
-
 .App {
   background-image: radial-gradient(farthest-corner at 0% 0%, #D8CAFF 15%, #D4DEFD 100%);
   min-height: 100vh;
@@ -35,6 +9,23 @@
   color: white;
 }
 
+.variant {
+  position: absolute;
+  width: 375px;
+  height: 375px;
+  right: 4%;
+  top: 50%;
+  transform: rotate(7deg);
+}
+
+.planet {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 3%;
+  top: 0%;
+  transform: rotate(-30deg);
+}
 /* =============== RESET =============== */
 
 ul li {
@@ -43,22 +34,6 @@ ul li {
 }
 
 /* =============== ALL =============== */
-
-h1 {
-  position: absolute;
-  padding: 5px 5px;
-  z-index: 5;
-  text-align: center;
-  top: 125px;
-  font-size: 120%;
-  font-style: oblique;
-  background-image: linear-gradient(2deg, #6DC1DC, #A690FC, #FC96BB, #FFC397);
-  background-size: 100%;
-  background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
 
 /* Create list, create reminder text input box */
 input[type="text"] {
@@ -96,6 +71,8 @@ input[type="text"]:focus {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -15px -15px 20px rgba(255, 255, 255, 0.6);
   border-radius: 41px;
   height: 50%;
+  left: 30%;
+  right: 30%;
 }
 
 /* =============== SIDEBAR (list-holder) =============== */
@@ -326,6 +303,7 @@ input[type="text"]:focus {
 }
 
 .reminders-page-title {
+  color: #6A88AC;
   font-size: 2.3rem;
   font-weight: bold;
   text-align: left;
@@ -333,8 +311,9 @@ input[type="text"]:focus {
 }
 
 .reminders-page-count {
+  font-weight: 400;
   font-size: 2rem;
-  margin: -8px 15px;
+  margin: -8px 20px;
 }
 
 /* ==== Checkbox ==== */
@@ -468,9 +447,10 @@ input[type="submit"]:focus {
 }
 
 .reminder-name {
-  font-size: 1.1rem;
+  /* color: #6A88AC; */
+  font-size: 1.2rem;
   font-weight: 600;
-  margin: 7px 0 7px 0;
+  margin-bottom: 5px;
 }
 
 .clear-all-reminders-button {
@@ -508,7 +488,7 @@ input[type="submit"]:focus {
 }
 
 .reminder-new-input-wrapper form input[type="text"] {
-  margin-left: 15px;
+  margin-left: 12px;
   width: 100%;
   height: 30px;
 }

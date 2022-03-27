@@ -28,17 +28,17 @@ const months = [
 
 function nth(o: any) {
   const so: string = String(o) || '0';
-  const oo = so.search(/1?\d\b/) - 1; //how to fix in TS?
+  const oo = so.search(/1/) - 1; 
   return o + (['st', 'nd', 'rd'][oo] || 'th');
 }
 
 function getTimeBasedGreeting(d: Date) {
   const hr = d.getHours();
-  return hr >= 18 && hr <= 4
-    ? 'Good Evening'
-    : hr > 4 && hr < 12
-      ? 'Good Morning'
-      : 'Good Afternoon';
+  return hr < 12
+  ? 'Good Morning'
+  : hr < 18 
+  ? 'Good Afternoon'
+  : 'Good Night';
 }
 
 function formatDate(d: Date) {
