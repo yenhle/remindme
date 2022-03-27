@@ -41,6 +41,10 @@ import { listState } from "./store/reducers/listReducer";
 import RemindersHolder from "./components/RemindersHolder";
 import ListsHolder from "./components/ListsHolder";
 import Greeting from "./greeting";
+
+
+
+
 interface IProps {}
 
 interface IState {
@@ -87,19 +91,24 @@ class App extends React.Component<Props, IState> {
       }
     }
   };
+  
 
   render() {
     const { currentList } = this.state;
     return (
+      
       <div className="App">
         <Greeting name="Chau" showTime={true}/>
         {/* <h1>Good morning Chau!</h1> */}
-        <div className="main-holder">
-          <ListsHolder
-            currentList={currentList}
-            updateCurrentList={this.updateCurrentList}
-          />
-          <RemindersHolder currentList={currentList} />
+
+            <div className="main-holder">
+
+                <ListsHolder
+                  currentList={currentList}
+                  updateCurrentList={this.updateCurrentList}
+                />
+                <RemindersHolder currentList={currentList} />
+
         </div>
       </div>
     );
