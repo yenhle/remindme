@@ -52,6 +52,7 @@ function ReminderInput({ handleAddReminder, currentList }: Props) {
             type="text"
             name="reminder"
             placeholder="Create Reminder"
+            autoComplete="off"
           />
           {/* <input type="submit" value="Create Reminder" /> */}
           <input

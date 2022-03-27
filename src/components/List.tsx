@@ -156,6 +156,7 @@ class List extends React.Component<Props, IState> {
                   value={this.state.newList}
                   onChange={this.editList}
                   ref={this.input}
+                  autoComplete="off"
                 />
               </form>
               <button
