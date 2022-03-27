@@ -1,35 +1,3 @@
-// import React from 'react';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <div className="Banner"/>
-//       <header className="App-header">
-//         <div className="Reminder-square"/>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// const greet = require("greet-by-time");
-// const hour = new Date().getHours();
-// greet.morningGreetings = ["Good morning", "Rise and shine"];
-// greet.dayGreetings = ["Good afternoon", "Hello", "Hi"];
-// greet.eveningGreetings = ["Good evening", "Good night"];
-// export default App;
-
 import React from "react";
 import { connect } from "react-redux";
 import { rootState } from "./store/reducers";
