@@ -19,7 +19,7 @@ setTimeout(function(){
         type: "basic",
         title: "Reminder",
         message: "You have task to do",
-        iconUrl: "icon192.png"
+        iconUrl: "noti.png"
     };
        
     chrome.notifications.create(options, callback);
