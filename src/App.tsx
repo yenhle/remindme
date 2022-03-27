@@ -9,8 +9,8 @@ import { listState } from "./store/reducers/listReducer";
 import RemindersHolder from "./components/RemindersHolder";
 import ListsHolder from "./components/ListsHolder";
 import Greeting from "./greeting";
-import {variant} from "./variant.png";
-import {planet} from "./planet.png";
+import variant from "./variant.png";
+import planet from "./planet.png";
 
 
 interface IProps {}
