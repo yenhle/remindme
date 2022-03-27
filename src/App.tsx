@@ -41,6 +41,9 @@ import { listState } from "./store/reducers/listReducer";
 import RemindersHolder from "./components/RemindersHolder";
 import ListsHolder from "./components/ListsHolder";
 import Greeting from "./greeting";
+import variant from "./variant.png";
+import planet from "./planet.png";
+
 interface IProps {}
 
 interface IState {
@@ -92,8 +95,9 @@ class App extends React.Component<Props, IState> {
     const { currentList } = this.state;
     return (
       <div className="App">
+        <img className="variant" src={variant} alt=""></img>
+        <img className="planet" src={planet} alt=""></img>
         <Greeting name="Chau" showTime={true}/>
-        {/* <h1>Good morning Chau!</h1> */}
         <div className="main-holder">
           <ListsHolder
             currentList={currentList}
@@ -126,4 +130,5 @@ const mapDispatchToProps = (
   ownProps: IProps
 ): LinkDispatchProps => ({});
 
+declare module "*.png";
 export default connect(mapStateToProps, mapDispatchToProps)(App);
