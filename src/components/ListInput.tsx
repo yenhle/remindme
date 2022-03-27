@@ -46,6 +46,7 @@ function ListInput({ handleAddList, updateCurrentList }: Props) {
             type="text"
             name="list"
             placeholder="Create List"
+            autoComplete="off"
           />
           <input type="submit" value="+" className={list === "" ? "create-list-button hidden" : "create-list-button"} />
         </form>

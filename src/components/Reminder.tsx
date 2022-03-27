@@ -144,6 +144,7 @@ class Reminder extends React.Component<Props, IState> {
                     value={this.state.newReminder}
                     onChange={this.editReminder}
                     ref={this.input}
+                    autoComplete="off"
                   />
                 </form>
                 <button className="cross" onClick={this.deleteReminder} />
