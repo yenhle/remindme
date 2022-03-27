@@ -43,6 +43,7 @@ class Reminder extends React.Component<Props, IState> {
 
   setReminder = () => {
     this.props.handleSetReminder(this.props.r, this.props.list);
+    
   };
 
   deleteReminder = () => {

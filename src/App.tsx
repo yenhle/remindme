@@ -9,8 +9,9 @@ import { listState } from "./store/reducers/listReducer";
 import RemindersHolder from "./components/RemindersHolder";
 import ListsHolder from "./components/ListsHolder";
 import Greeting from "./greeting";
-import variant from "./variant.png";
-import planet from "./planet.png";
+import {variant} from "./variant.png";
+import {planet} from "./planet.png";
+
 
 interface IProps {}
 
@@ -58,6 +59,7 @@ class App extends React.Component<Props, IState> {
       }
     }
   };
+  
 
   render() {
     const { currentList } = this.state;
@@ -77,6 +79,7 @@ class App extends React.Component<Props, IState> {
     );
   }
 }
+
 
 interface LinkStateProps {
   reminders: remindersState;
