@@ -1,20 +1,9 @@
-.App {
+/* .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-image: radial-gradient(farthest-corner at 0% 0%, #D8CAFF 0%, #D4DEFD 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +13,533 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Reminder-square {
+  position: absolute;
+  top: 25%;
+  left: 33%;
+  width: 35%;
+  height: 50%;
+  background: #E1E1FA;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -15px -15px 20px rgba(255, 255, 255, 0.6);
+  border-radius: 41px;
+} */
+
+.App {
+  background-image: radial-gradient(farthest-corner at 0% 0%, #D8CAFF 15%, #D4DEFD 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* =============== RESET =============== */
+
+ul li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* =============== ALL =============== */
+
+h1 {
+  position: absolute;
+  padding: 5px 5px;
+  z-index: 5;
+  text-align: center;
+  top: 125px;
+  font-size: 120%;
+  font-style: oblique;
+  background-image: linear-gradient(2deg, #6DC1DC, #A690FC, #FC96BB, #FFC397);
+  background-size: 100%;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+/* Create list, create reminder text input box */
+input[type="text"] {
+  padding: 0 15px;
+  border-radius: 15px;
+}
+
+input[type="text"]:focus {
+  outline: 1px solid white;
+}
+
+/* the create list text */ 
+.side-bar input[type="text"] {
+  background-color: white;
+  font-weight: 800;
+  color: #2C4271;
+  border: none;
+}
+
+/* the create reminder text */
+.main input[type="text"] {
+  background-color: white;
+  font-weight: 800;
+  color: #2C4271;
+  border: none;
+}
+
+/* =============== MAIN HOLDER =============== */
+
+.main-holder {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  background: #E1E1FA;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -15px -15px 20px rgba(255, 255, 255, 0.6);
+  border-radius: 41px;
+  height: 50%;
+}
+
+/* =============== SIDEBAR (list-holder) =============== */
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border-right: 3px solid white;
+}
+
+.label-my-lists {
+  color: #6A88AC;
+  /* background-image: linear-gradient(4deg, #6DC1DC, #A690FC, #FC96BB, #FFC397);
+  background-size: 100%;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent; */
+  margin: 20px 0px;
+  padding: 0 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* list names */
+.lists-holder {
+  height: 100%;
+  font-weight: 600;
+  color: #6A88AC;
+}
+
+.list-button {
+  text-transform: capitalize;
+  margin: 15px auto;
+  padding: 10px;
+  border: 2px solid rgba(13, 174, 177, 0);
+  cursor: pointer;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0.584);
+  position: relative;
+  transition: ease 0.3s all;
+  /* float: right; */
+
+}
+
+.list-button.active {
+  text-transform: capitalize;
+  margin: 15px auto;
+  padding: 10px;
+  border: 2px solid rgba(13, 174, 177, 0.406);
+  cursor: pointer;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255);
+  position: relative;
+  transition: ease 0.3s all;
+  background-color: rgba(112, 116, 125, 0.28);
+}
+
+.list-button:hover,
+.list-button:focus {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: ease 0.3s all;
+  border: 2px solid rgba(13, 174, 177, 0.406);
+}
+
+.list-holder {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  /* padding: 0; */
+  /* width: 100%; */
+  min-height: 30px;
+  justify-content: space-between;
+  background-color: #E1E1FA;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.list-holder:hover {
+  background-color: #E1E1FA;
+  transition: all ease-out 0.3s;
+}
+
+/* background color when hovering over the list */
+.list-holder.active {
+  background-color: #D4DEFD;
+  transition: all ease-out 0.5s;
+}
+
+.list-name {
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  text-align: left;
+  padding: 0px 5px;
+}
+
+.list-name form {
+  width: 100%;
+  display: flex;
+}
+
+/* .list-name form input[type="text"] {
+  width: 80%;
+} */
+
+/* ====== Delete button ====== */
+
+.cross {
+  /* position: absolute; */
+  /* right: 32px; */
+  /* top: 32px; */
+  width: 20px;
+  height: 20px;
+  /* height: 0; */
+  opacity: 0.6;
+  position: relative;
+  margin: 5px 5px;
+  background: none;
+  background-position-x: 40px;
+  background-position-y: 0px;
+  background-image: url(button.png);
+  background-size: 125%;
+}
+
+.cross:hover {
+  opacity: 1;
+}
+
+.cross:before,
+.cross:after {
+  position: absolute;
+  /* left: 15px; */
+  top: 2px;
+  left: 14px;
+  content: " ";
+  height: 25px;
+  width: 2px;
+  color: transparent;
+  background-image: url(button.png);
+}
+
+.cross:before {
+  transform: rotate(45deg);
+}
+
+.cross:after {
+  transform: rotate(-45deg);
+}
+
+.reminder-input-wrapper .cross {
+  background-position-x: 19px;
+  background-position-y: -1px;
+  margin-right: 10px;
+}
+
+.reminder-input-wrapper .cross:before,
+.reminder-input-wrapper .cross:after {
+  background-image: url(button.png);
+}
+
+/* ====== end of Delete button ====== */
+
+.list-input-wrapper {
+  margin: 20px 10px;
+}
+
+.list-input-wrapper form {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-input-wrapper form input[type="text"] {
+  margin-left: 23px;
+  width: 100%;
+  height: 30px;
+}
+
+.list-input-wrapper form input[type="submit"] {
+  /* color: rgba(255, 255, 255, 0.584); */
+  background: none;
+  color: transparent;
+  background-image: url(submit.png);
+  background-size: 100%;
+  margin: 5px;
+  transition: all ease 0.5s;
+  width: 36px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.list-input-wrapper form input[type="submit"]:hover,
+.list-input-wrapper form input[type="submit"]:focus {
+  text-decoration: none;
+  /* color: rgb(66, 39, 39); */
+  /* transition: ease 0.3s all; */
+  /* border: 2px solid rgba(13, 174, 177, 0.406); */
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =============== MAIN (REMINDERS) =============== */
+
+.main {
+  background-color: #E1E1FA;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 41px;
+}
+
+.reminders-page-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.reminders-page-title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: left;
+  margin: -12px 27px 10px 27px;
+}
+
+.reminders-page-count {
+  font-size: 2rem;
+  margin: -8px 15px;
+}
+
+/* ==== Checkbox ==== */
+
+input[type="checkbox"] {
+  /* transform: scale(2); */
+  /* padding: 20px; */
+  /* margin: 10px; */
+  /* border-radius: 15px; */
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  margin: 10px;
+  background-color: #eee;
+
+  /* width: 1.3em; */
+  /* height: 1.3em; */
+  /* background-color: white; */
+  border-radius: 50%;
+  /* vertical-align: middle; */
+  /* border: 1px solid #ddd; */
+  -webkit-appearance: none;
+  outline: none;
+  /* cursor: pointer; */
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  text-decoration: none;
+  color: rgb(66, 39, 39);
+  transition: ease 0.3s all;
+  /* border: 2px solid rgba(13, 174, 177, 0.406); */
+}
+
+.round {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  margin: 7px;
+}
+
+.round label {
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  border-radius: 50%;
+  cursor: pointer;
+  height: 23px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 23px;
+}
+
+.round label:after {
+  /* border: 2px solid #fff;
+  border-top: none;
+  border-right: none; */
+  content: "";
+  height: 6px;
+  left: 5px;
+  opacity: 0;
+  position: absolute;
+  top: 6px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+/* checked symbol */
+.round input[type="checkbox"]:checked + label {
+  background-image: url(checked.png);
+  background-size: 100%;
+  /* background-color: #66bb6a;
+  border-color: #66bb6a; */
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 0;
+}
+
+/* ==== end of Checkbox ==== */
+
+.reminders-holder {
+  height: 100%;
+}
+
+/* All items completed text */
+.reminders-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 105px 0 0 0;
+  /* justify-content: center; */
+  color: grey;
+  font-size: 80%;
+}
+
+.reminders-holder ul li {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.reminder-wrapper {
+  display: flex;
+  width: 100%;
+  /* border-bottom: 1px solid rgb(85, 85, 85); */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reminder-input-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.reminder-input-wrapper form {
+  /* height: 50px; */
+  display: flex;
+  width: 100%;
+}
+
+.reminder-input-wrapper form input[type="text"] {
+  width: 100%;
+}
+
+.reminder-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 7px 0 7px 0;
+}
+
+.clear-all-reminders-button {
+  transition: all ease 0.8s;
+  transition-delay: 0.5s;
+  border-radius: 20px;
+  background: #282c34;
+  color: white;
+  padding: 5px;
+  margin: 10px 107px 10px 107px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  /* opacity: 1; */
+}
+
+.clear-all-reminders-button.hidden {
+  transition: none;
+}
+
+.clear-all-reminders-button:hover {
+  /* transition: all ease 0.3s; */
+  color: #e9e9e9;
+}
+
+.reminder-new-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 10px;
+}
+
+.reminder-new-input-wrapper form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.reminder-new-input-wrapper form input[type="text"] {
+  margin-left: 15px;
+  width: 100%;
+  height: 30px;
+}
+
+.reminder-new-input-wrapper form input[type="submit"] {
+  background: none;
+  color: transparent;
+  background-image: url(submit.png);
+  background-size: 100%;
+  /* color: rgba(255, 255, 255, 0.584); */
+  margin: 5px;
+  transition: all ease 0.5s;
+  width: 31px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/* .reminder-new-input-wrapper form input[type="submit"]:hover,
+.reminder-new-input-wrapper form input[type="submit"]:focus {
+  text-decoration: none;
+  transition: ease 0.3s all;
+} */
+
+/* .create-reminder-button {
+} */
+
+/* =============== OTHER =============== */
+
+.vertical-align {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
 }
